@@ -6,8 +6,37 @@ import { UpdateClaimDto } from './dto/update-claim.dto';
 export class ClaimsService {
     private claims = [
         {  claimNumber:'1', claimStatus: "ADDITIONAL_INFO_REQUIRED", dateSubmitted: "2007-04-26T00:00:00" },
-        {  claimNumber:'2', claimStatus: "COMPLETED", dateSubmitted: "2013-04-26T00:00:00"        }
+        {  claimNumber:'2', claimStatus: "COMPLETED", dateSubmitted: "2013-04-26T00:00:00"        },
+        {  claimNumber:'3', claimStatus: "COMPLETED", dateSubmitted: "2033-04-26T00:00:00"        }
     ];
+    private users= [
+        {
+            userId: '1',
+            name:{
+                "firstName": "John",
+                "lastName": "Smith"
+                }
+        },
+        {
+            userId: '2',
+            name:{
+                "firstName": "Apple",
+                "lastName": "Bottom"
+                }
+        }
+
+    ];
+    private records = [
+        {
+            userID: '1',
+            claims: ['1','2']
+        },
+        {
+            userID: '2',
+            claims: ['3']
+        }
+        
+    ]
 
     getClaims(claimStatus?: 'COMPLETED' | 'ADDITIONAL_INFO_REQUIRED'){
         if(claimStatus){
@@ -53,6 +82,11 @@ export class ClaimsService {
         this.claims = this.claims.filter((claim) => claim.claimNumber !== claimNumber);
     
         return toBeRemoved;
+    }
+
+    getUserClaims(userID: string){
+        const claims = this.records.find((userRecord) => userRecord.userID == userID);
+        return claims;
     }
 }
 

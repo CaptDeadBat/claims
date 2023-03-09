@@ -50,6 +50,11 @@ removeClaim(@Param('claimNumber') claimNumber: string){
     return this.claimsService.removeClaim(claimNumber);
 }
 
+@Get()
+getUserClaims(@Query('userId') userId: string){
+    return this.claimsService.getUserClaims(userId);
+}
+
 
 }
 
