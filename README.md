@@ -3,7 +3,7 @@
 ## Get:
 
 
-localhost:8089/u1                                            *[get claims under userid 1]*
+localhost:8089/u1                                            `#RRGGBB`[get claims under userid 1]
 
 localhost:8089/claims                                        [get all the claims present] 
  
