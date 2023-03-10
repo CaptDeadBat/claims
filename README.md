@@ -1,6 +1,6 @@
-Claims api:
+#Claims api:
 
-Get:
+##Get:
 
 
 localhost:8089/u1                                            [get claims under userid 1]
@@ -12,21 +12,23 @@ localhost:8089/claims?status=COMPLETED                       [get all the claims
 localhost:8089/c1                                            [get claim with claimnumber 1]
 
 
-Post:
+##Post:
 
 localhost:8089/claims with claim as a json object in body    [create claim with claimnumber being generated using current date & time]
 
-Put:
+##Put:
 
 localhost:8089/claims/1                                      [update claim number 1]
 
-Delete:
+##Delete:
 
 localhost:8089/claims/1                                      [delete claim number 1]
 
 
 
-Documents api:
+#Documents api:
+
+##Get
 
 localhost:8089/docu/1                                         [fetch all documents for claim number1]
 
