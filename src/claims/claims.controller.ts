@@ -7,17 +7,27 @@ import { UpdateClaimDto } from './dto/update-claim.dto';
 export class ClaimsController {
 
     constructor(private readonly claimsService: ClaimsService){
-
     }
 
-//GET /claims -->[]
+
+// GET /claims -->[]
 @Get()
 getClaims(@Query('status') status: 'COMPLETED' | 'ADDITIONAL_INFO_REQUIRED'){
     return this.claimsService.getClaims(status);
 }
 
-//GET /claims/:id -->{...}
-@Get(':claimNumber')
+
+//GET /u1 -->[]
+@Get('u:userId')
+getUserClaims(@Param('userId') userId: string){
+
+
+   return this.claimsService.getUserClaims(userId);
+ }
+
+
+//GET /claims/c1 -->{...}
+@Get('c:claimNumber')
 getOneClaim(@Param('claimNumber') claimNumber: string){
     try{
         
@@ -30,11 +40,13 @@ getOneClaim(@Param('claimNumber') claimNumber: string){
     
 }
 
+
 //POST /claims
 @Post()
 createClaim(@Body(new ValidationPipe()) createClaimDto: CreateClaimDto){
     return this.claimsService.createClaim(createClaimDto);
 }
+
 
 //PUT /claims/:id -->{...}
 @Put(':claimNumber')
@@ -42,17 +54,11 @@ updateClaim(@Param('claimNumber') claimNumber: string, @Body() updateClaimDto: U
     return this.claimsService.updateClaim(claimNumber, updateClaimDto);
 }
 
+
 //DELETE /claims/:id 
 @Delete(':claimNumber')
 removeClaim(@Param('claimNumber') claimNumber: string){
-
-    
     return this.claimsService.removeClaim(claimNumber);
-}
-
-@Get()
-getUserClaims(@Query('userId') userId: string){
-    return this.claimsService.getUserClaims(userId);
 }
 
 

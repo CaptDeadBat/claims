@@ -10,7 +10,7 @@ export class DocuController {
     }
 
 
-//GET /docu/:claimNumber-->{...}
+//GET /docu/:claimNumber --> {...}
 @Get(':claimNumber')
 getDocuments(@Param('claimNumber') claimNumber: string){
     
